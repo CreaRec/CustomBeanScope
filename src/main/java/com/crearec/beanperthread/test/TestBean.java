@@ -3,7 +3,6 @@ package com.crearec.beanperthread.test;
 import com.crearec.beanperthread.component.FirstComponent;
 import com.crearec.beanperthread.component.SecondComponent;
 import com.crearec.beanperthread.scope.CustomRunnable;
-import com.crearec.beanperthread.scope.ThreadScopeThread;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +28,7 @@ public class TestBean {
             firstComponent.print();
             secondComponent.print();
         });
-        Thread thread1 = new ThreadScopeThread(customRunnable);
+        Thread thread1 = new Thread(customRunnable);
         System.out.println("3");
         firstComponent.print();
         secondComponent.print();

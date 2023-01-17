@@ -42,7 +42,7 @@ public class CustomThreadScope implements Scope {
 
     @Override
     public Object remove(String name) {
-        return Thread.currentThread() instanceof ThreadScopeThread ? threadScope.get().remove(name) : singletonObjects.remove(name);
+        return Thread.currentThread().getName().equals(CustomRunnable.CUSTOM_THREAD_NAME) ? threadScope.get().remove(name) : singletonObjects.remove(name);
     }
 
     @Override
